@@ -4,11 +4,11 @@ import Foundation
 
 
 @propertyWrapper
-struct trimChar{
+public struct trimChar{
     private var str: String
     private var char: CharacterSet
 
-    var wrappedValue: String {
+    public var wrappedValue: String {
         get{
             str.trimmingCharacters(in: char)
         }
@@ -16,7 +16,7 @@ struct trimChar{
             str = newValue
         }
     }
-    init(wrappedValue: String, char: CharacterSet? = .whitespacesAndNewlines) {
+    public init(wrappedValue: String, char: CharacterSet? = .whitespacesAndNewlines) {
         self.char = char!
         self.str = wrappedValue
     }
@@ -24,11 +24,11 @@ struct trimChar{
 
 
 @propertyWrapper
-struct NSLockP<T>{
+public struct NSLockP<T>{
     private let lock = NSLock()
     private var t: T
 
-    var wrappedValue: T {
+    public var wrappedValue: T {
         get{
             defer {
                 lock.unlock()
@@ -44,17 +44,17 @@ struct NSLockP<T>{
             t = newValue
         }
     }
-    init(wrappedValue: T) {
+    public init(wrappedValue: T) {
         t = wrappedValue
     }
 }
 
 @propertyWrapper
-struct strPreMax{
+public struct strPreMax{
     private var count: Int
     private var str: String
 
-    var wrappedValue: String {
+    public var wrappedValue: String {
         get{
             str
         }
@@ -62,7 +62,7 @@ struct strPreMax{
             str = String(newValue.prefix(count))
         }
     }
-    init(wrappedValue: String, count: Int) {
+    public init(wrappedValue: String, count: Int) {
         self.count = count
         str = String(wrappedValue.prefix(count))
 
