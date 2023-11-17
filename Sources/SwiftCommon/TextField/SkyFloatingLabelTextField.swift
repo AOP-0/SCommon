@@ -16,7 +16,7 @@ public enum ErrorMessagePlacement {
  A beautiful and flexible textfield implementation with support for title label, error message and placeholder.
  */
 @IBDesignable
-open class P_AM_SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this type_body_length
+open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this type_body_length
     /**
      A Boolean value that determines if the language displayed is LTR. 
      Default value set automatically from the application language settings.
@@ -392,7 +392,7 @@ open class P_AM_SkyFloatingLabelTextField: UITextField { // swiftlint:disable:th
     }
 
     fileprivate func addEditingChangedObserver() {
-        self.addTarget(self, action: #selector(P_AM_SkyFloatingLabelTextField.editingChanged), for: .editingChanged)
+        self.addTarget(self, action: #selector(SkyFloatingLabelTextField.editingChanged), for: .editingChanged)
     }
 
     /**

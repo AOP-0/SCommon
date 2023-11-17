@@ -68,3 +68,32 @@ public struct strPreMax{
 
     }
 }
+
+
+@propertyWrapper
+struct UserDfaultsWrapper<T> {
+    
+    var key: String
+    var defaultValue:T
+    
+    var wrappedValue: T {
+        get{
+
+            UserDefaults.standard.object(forKey: key) as? T ?? defaultValue
+        }
+        nonmutating set{
+            
+            UserDefaults.standard.set(newValue, forKey: key)
+            
+        }
+    }
+    
+    init(_ key: String, defaultV: T) {
+        self.key = key
+        self.defaultValue = defaultV
+        
+    }
+ 
+    
+}
+
