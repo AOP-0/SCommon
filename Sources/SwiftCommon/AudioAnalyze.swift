@@ -4,7 +4,7 @@ import Foundation
 import AVFoundation
 import Accelerate
 
-class AudioAnalyze {
+public class AudioAnalyze {
     private var fftSize: Int
     private lazy var fftSetup = vDSP_create_fftsetup(vDSP_Length(Int(round(log2(Double(fftSize))))), FFTRadix(kFFTRadix2))
     
@@ -36,7 +36,7 @@ class AudioAnalyze {
         }
     }
 
-    init(fftSize: Int, frequencyBands: Int) {
+    public init(fftSize: Int, frequencyBands: Int) {
         self.fftSize = fftSize
         self.frequencyBands = frequencyBands
     }
@@ -45,7 +45,7 @@ class AudioAnalyze {
         vDSP_destroy_fftsetup(fftSetup)
     }
 
-    func analyse(with buffer: AVAudioPCMBuffer) -> [[Float]] {
+    public func analyse(with buffer: AVAudioPCMBuffer) -> [[Float]] {
         let channelsAmplitudes = fft(buffer)
         let aWeights = createFrequencyWeights()
         if spectrumBuffer.count == 0 {
