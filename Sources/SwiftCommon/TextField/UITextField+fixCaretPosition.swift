@@ -4,7 +4,7 @@ import UIKit
 
 extension UITextField {
     /// Moves the caret to the correct position by removing the trailing whitespace
-    func fixCaretPosition() {
+    public func fixCaretPosition() {
         // Moving the caret to the correct position by removing the trailing whitespace
         // http://stackoverflow.com/questions/14220187/uitextfield-has-trailing-whitespace-after-securetextentry-toggle
 
@@ -14,7 +14,7 @@ extension UITextField {
         selectedTextRange = textRange(from: end, to: end)
     }
     
-    @IBInspectable var placeHolderColor: UIColor? {
+    @IBInspectable public var placeHolderColor: UIColor? {
         get {
             return self.placeHolderColor
         }
